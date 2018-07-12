@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title> 
+		<script src="jspsych-6.0.4/jspsych.js"></script>
+		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
+		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
+		<script src="jspsych-6.0.4/plugins/jspsych-fullscreen.js"></script>
+		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+		<style>
+			img {
+				width:300px;
+			}
+			</style>
+    </head>
+    <body style="background-color:grey;">
+	</body>
+	<script>
+	
+		var timeline = []; 
+	
+		/* present everything in fullscreen */
+		timeline.push({
+		  type: 'fullscreen',
+		  fullscreen_mode: true
+		});	
+	
+	
+		var welcome = {
+			type: "html-keyboard-response", 
+			stimulus: "<p>Herzlich willkommen! Vielen Dank fuer Ihre Teilnahme an diesem kleinen Experiment.</p>" +
+			"<p>Drücken Sie eine beliebige Taste, um die Aufgabe kennenzulernen.</p>"
+			};
+		timeline.push(welcome);
+			
+/*  GEHT FOLGENDES VIELLEICHT SCHÖNER??? */		
+		/* Instructions good-bad condition */
+		var instructions_gb = {
+			type: "html-keyboard-response",
+			stimulus: "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
+				"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach um gutes oder schlechtes Wetter handelt.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>gutes</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>schlechtes</strong> Wetter, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
+				"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
+				"<div style='float: middle;'><img src='img/clouds4.jpg'></img>" +
+				"</div>"+
+				"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>",
+			post_trial_gap:2000
+			};			
+			
+		/* Instructions bad-good condition */	
+		var instructions_bg = {
+			type: "html-keyboard-response",
+			stimulus: "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
+				"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach um gutes oder schlechtes Wetter handelt.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>gutes</strong> Wetter, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>schlechtes</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
+				"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
+				"<div style='float: middle;'><img src='img/clouds4.jpg'></img>" +
+				"</div>"+
+				"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>",
+			post_trial_gap:2000
+			};		
+
+/*  HIER DIE ZUFALLSAUSWAHL EINBAUEN */			
+		timeline.push(instructions_gb);	
+			
+			
+		/* DEFINE TRIAL COMPONENTS */
+		var fixation = {
+			type: 'html-keyboard-response',
+			stimulus: '<div style="font-size:60px;">+</div>',
+			choices: jsPsych.NO_KEYS,
+			trial_duration: 500,
+			}
+		
+		var choice = {
+			type: "image-keyboard-response",
+			stimulus: jsPsych.timelineVariable('stimulus'),
+			choices: ['f', 'j']
+			}		
+		
+		var iti = {
+			type: 'html-keyboard-response', 
+			stimulus: '<div></div>', 
+			trial_duration: 500,
+			}		
+		
+		
+		/* SPECIFY STIMULI */
+		var test_stimuli = [
+			{stimulus: "img/clouds1.jpg"},
+			{stimulus: "img/clouds2.jpg"},
+			{stimulus: "img/clouds3.jpg"}];
+		
+		var stimuli = [
+			{stimulus: "img/clouds1.jpg"},
+			{stimulus: "img/clouds2.jpg"},
+			{stimulus: "img/clouds3.jpg"}];
+		
+		
+/* Or try to simply list all files in the image-folder? 
+		
+			var fs = require('fs');
+			var files = fs.readdirSync('img/');
+		
+*/	
+			
+		var test_procedure = {
+			timeline: [fixation, choice, iti],
+			timeline_variables: test_stimuli,
+			randomize_order: true,
+			}
+			
+		var procedure = {
+			timeline: [fixation, choice, iti],
+			timeline_variables: stimuli,
+			randomize_order: true,
+			repetitions: 5
+			}	
+			
+    timeline.push(test_procedure);
+	
+	
+	/* INSERT: instructions */
+		var now_for_real = {
+			type: "html-keyboard-response",
+			stimulus: "<p>Das waren die Uebungsdurchgaenge.</p>"+
+				"<p>Druecken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>",
+			post_trial_gap: 2000
+			};
+		timeline.push(now_for_real);
+		
+	
+		timeline.push(procedure);
+	
+	/* INSERT: instructions */
+		var thank_you = {
+			type: "html-keyboard-response",
+			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank fuer Ihre Teilnahme!</p>"+
+				"<p>Druecken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschliessend können Sie das Browser-Fenster schließen.</p>",
+			post_trial_gap: 2000
+			};
+			
+	/* Exit fullscreen-mode */
+		timeline.push({
+		  type: 'fullscreen',
+		  fullscreen_mode: false
+		});		
+		
+		timeline.push(thank_you);	
+		
+		
+		jsPsych.init({
+			timeline:timeline,
+			on_finish:function() {
+			jspsych.data.dispaly();
+			}
+		});
+			
+				
+	</script>  
+</html>
