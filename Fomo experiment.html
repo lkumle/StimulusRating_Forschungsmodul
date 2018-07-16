@@ -31,48 +31,42 @@
 		
 		
 		/*Instructions*/
-			
-					
+		
+		var c1 = ~~(Math.random()*2) ? "gutes" : "schlechtes"
+		var c_dict = {	"gutes": "schlechtes",
+						"schlechtes": "gutes"}
+		
+		var c2 = c_dict[c1]
+		
+		var text = "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
+		        "<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach"+
+		        "um gutes oder schlechtes Wetter handelt.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>" + c1 +
+				"</strong> Wetter, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>" + c2 +
+				"</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
+ 				"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
+ 				"<div style='float: middle;'><img src='test_himmel_2.png'></img>" +
+ 				"</div>"+
+				"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>"
+		
 		var instructions = {
-			timeline: [
-				{
-					type:'html-keyboard-response',
-					stimulus: jsPsych.timelineVariable('intro'),
-				}
-			],
-			timeline_variables: [
-				{intro: 'instructions_bg'},    /*Wie füge ich hier eine Variable ein?? So funktioniert es scheinbar nicht*/
-				{intro: "<p> Intro_2 </p>"}	/*Platzhalter*/
-			],
-			randomize_order: true
-			}
-		
-		var instructions_bg = {
-			type: "html-keyboard-response",
-			stimulus: "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
-				"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach um gutes oder schlechtes Wetter handelt.</p>"+
-				"<p>Handelt es sich Ihrer Meinung nach um <strong>gutes</strong> Wetter, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
-				"<p>Handelt es sich Ihrer Meinung nach um <strong>schlechtes</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
-				"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
-				"<div style='float: middle;'><img src='img/clouds4.jpg'></img>" +
-				"</div>"+
-				"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>",
-			post_trial_gap:2000
-			};
-		
+								type: 'html-keyboard-response',
+								stimulus: text
+							};
 		timeline.push(instructions);
 		
-		/*ich randomisiere zwar aber natürlich werden beide instructions angezeigt. Wie wird nur eine angezeigt?*/
-			
-	
+		
+		
 		
 		/*Define trial components*/
 		var test_stimuli = [
-			{stimulus:	
-						"<div><img src = 'thumbs.png'></div>" +			/*wie kann ich zwei Bilder untereinander anzeigen?*/
-						"<div><img src = 'test_himmel_2.png'></div>"},
-			{stimulus: "test_himmel_3.png"},
-			{stimulus: "test_himmel_4.png"}
+			{stimulus: "<div><img src='test_himmel_2.png' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+			{stimulus: "<div><img src='test_himmel_3.png' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+			{stimulus: "<div><img src='test_himmel_4.png' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
 			];
 			
 		var fixation = {
@@ -83,7 +77,7 @@
 			}
 
 		var choice = {
-			type: "image-keyboard-response",
+			type: "html-keyboard-response",
 			stimulus: jsPsych.timelineVariable('stimulus'),
 			choices: ['f', 'j']
 			}
@@ -113,16 +107,24 @@
 		/*ab hier das echte Experiment*/
 		
 		var stimuli = [
-		{stimulus: "test_himmel_2.png"},
-		{stimulus: "test_himmel_3.png"},
-		{stimulus: "test_himmel_4.png"}
+		{stimulus: "<div><img src='H1.png' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+		{stimulus: "<div><img src='H2.jpg' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+		{stimulus: "<div><img src='H3.jpg' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+		{stimulus: "<div><img src='H4.jpg' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+		{stimulus: "<div><img src='H5.jpg' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
+		{stimulus: "<div><img src='H6.jpg' width='600' height='400'></img></div>" + 
+			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
 		];
 		
 		var procedure = {
 			timeline: [fixation, choice, iti],
 			timeline_variables: stimuli, 
 			randomize_order: true,
-			repetitions: 5
 		}
 		
 		timeline.push(procedure);
