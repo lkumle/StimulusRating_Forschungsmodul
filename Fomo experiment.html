@@ -5,34 +5,75 @@
 		<script src="jspsych-6.0.4/jspsych.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
+		<script src="jspsych-6.0.4/plugins/jspsych-fullscreen.js"></script>
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     </head>
-    <body style="background-color:grey;">
+    <body style="background-color:lightgrey;">
 	</body>
 	<script>
 	
 		var timeline = []; 
-	
+		
+		/* present fullscreen*/
+		timeline.push({
+			type: 'fullscreen',
+			fullscreen_mode:true
+		});
+		
+		/*Welcome text presentation*/
+		
 		var welcome = {
 			type: "html-keyboard-response", 
-			stimulus: "Welcome to the experiment. Press any key to begin."
+			stimulus: "<p>Herzlich Willkommen! Vielen Dank für Ihre Teilnahme an diesem Experiment.</p>" +
+			"<p>Drücken Sie eine beliebige Taste, um die Aufgabe kennenzulernen.</p>"
 			};
 		timeline.push(welcome);
 		
+		
+		/*Instructions*/
+			
+					
 		var instructions = {
+			timeline: [
+				{
+					type:'html-keyboard-response',
+					stimulus: jsPsych.timelineVariable('intro'),
+				}
+			],
+			timeline_variables: [
+				{intro: 'instructions_bg'},    /*Wie füge ich hier eine Variable ein??*/
+				{intro: "<p> Intro_2 </p>"}
+			],
+			randomize_order: true
+			}
+		
+		var instructions_bg = {
 			type: "html-keyboard-response",
-			stimulus: "<p>In this experiment you will see clouds. Please rate the weather!</p>"+
-				"<div style='float: middle;'><img src='test_himmel_2.png'></img>" +
+			stimulus: "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
+				"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach um gutes oder schlechtes Wetter handelt.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>gutes</strong> Wetter, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
+				"<p>Handelt es sich Ihrer Meinung nach um <strong>schlechtes</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
+				"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
+				"<div style='float: middle;'><img src='img/clouds4.jpg'></img>" +
 				"</div>"+
-				"<p>Press any key to begin.</p>",
+				"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>",
 			post_trial_gap:2000
 			};
-		timeline.push(instructions);
 		
+			
+		timeline.push(instructions);
+		/*ich randomisiere zwar aber natürlich werden beide instructions angezeigt. Wie wird nur eine angezeigt?*/
+			
+	
+		
+		/*Define trial components*/
 		var test_stimuli = [
-			{stimulus: "test_himmel_2.png"},
+			{stimulus:	
+						"<div><img src = 'thumbs.png'></div>" +
+						"<div><img src = 'test_himmel_2.png'></div>"},
 			{stimulus: "test_himmel_3.png"},
-			{stimulus: "test_himmel_4.png"}];
+			{stimulus: "test_himmel_4.png"}
+			];
 			
 		var fixation = {
 			type: 'html-keyboard-response',
@@ -41,33 +82,72 @@
 			trial_duration: 500,
 			}
 
-		var test = {
+		var choice = {
 			type: "image-keyboard-response",
 			stimulus: jsPsych.timelineVariable('stimulus'),
 			choices: ['f', 'j']
 			}
 			
-		var blank = {
+		var iti = {
 			type: 'html-keyboard-response', 
 			stimulus: '<div></div>', 
 			trial_duration: 500,
 			}
 
 		var test_procedure = {
-			timeline: [fixation, test, blank],
-			timeline_variables: test_stimuli,
+			timeline: [fixation, choice, iti],
+			timeline_variables: test_stimuli, 
 			randomize_order: true,
-			repetitions: 5
 			}
 
-    timeline.push(test_procedure);
+		timeline.push(test_procedure);
+		
+		var end_of_practice = {
+			type: "html-keyboard-response", 
+			stimulus: "<p>Das waren die Übungsdurchgänge</p>" +
+			"<p>Drücken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>"
+			};
+			
+		timeline.push(end_of_practice);
+		
+		/*ab hier das echte Experiment*/
+		
+		var stimuli = [
+		{stimulus: "test_himmel_2.png"},
+		{stimulus: "test_himmel_3.png"},
+		{stimulus: "test_himmel_4.png"}
+		];
+		
+		var procedure = {
+			timeline: [fixation, choice, iti],
+			timeline_variables: stimuli, 
+			randomize_order: true,
+			repetitions: 5
+		}
+		
+		timeline.push(procedure);
 		
 			
+		var goodbye = {
+			type: "html-keyboard-response", 
+			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank für Ihre Teilnahme!</p>" +
+			"<p>Drücken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschließend können Sie das Browser-Fenster schließen.</p>"
+			};
+			
+		timeline.push({
+			type: 'fullscreen',
+			fullscreen_mode: false 
+			});
+
+		timeline.push(goodbye);
+		
 		jsPsych.init({
 			timeline:timeline,
 			on_finish:function() {
 			jspsych.data.dispaly();
 			}
+			
+		
 		});
 			
 				
