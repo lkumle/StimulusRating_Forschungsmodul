@@ -155,9 +155,7 @@
 		
 		jsPsych.init({
 			timeline:timeline,
-			on_finish:function() {
-			jspsych.data.dispaly();
-			}
+			on_finish:function() {jsPsych.data.displayData();}
 			
 		
 		});
