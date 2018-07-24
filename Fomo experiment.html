@@ -14,6 +14,9 @@
 	
 		var timeline = []; 
 		
+		// randomly generate subject ID as combination of 15 letters and numbers
+		var subject_id = jsPsych.randomization.randomID(15);
+		
 		/* present fullscreen*/
 		timeline.push({
 			type: 'fullscreen',
@@ -58,6 +61,13 @@
 		
 		
 		
+		// variable condi containing the condition of the subject in text form
+		var condi = "J = "+c1.replace("es", "");
+		
+		// logging subject_id and condition in each trial
+		jsPsych.data.addProperties({ID: subject_id, condition: condi});
+		
+		
 		
 		/*Define trial components*/
 		var test_stimuli = [
@@ -79,7 +89,7 @@
 		var choice = {
 			type: "html-keyboard-response",
 			stimulus: jsPsych.timelineVariable('stimulus'),
-			choices: ['f', 'j']
+			choices: ['f', 'j'] // corresponding to 70 and 74 in js key code, respectively (and the key code is logged)
 			}
 			
 		var iti = {
