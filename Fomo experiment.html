@@ -84,20 +84,36 @@
 		var fixation = {
 			type: 'html-keyboard-response',
 			stimulus: '<div style="font-size:60px;">+</div>',
-			choices: jsPsych.NO_KEYS,
+			choices: ["q"],
 			trial_duration: 500,
+			on_finish: function(data){
+				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) Teilnahme!</div>")
+					} // end if-statement	
+				} // end function(data)
 			}
 
 		var choice = {
 			type: "html-keyboard-response",
 			stimulus: jsPsych.timelineVariable('stimulus'),
-			choices: ['f', 'j'] // corresponding to 70 and 74 in js key code, respectively (and the key code is logged)
+			choices: ['f', 'j', 'q'], // corresponding to 70, 74 and 81 in js key code, respectively (and the key code is logged)
+			on_finish: function(data){
+				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) Teilnahme!</div>")
+					} // end if-statement	
+				} // end function(data)
 			}
 			
 		var iti = {
 			type: 'html-keyboard-response', 
 			stimulus: '<div></div>', 
+			choices: ["q"],
 			trial_duration: 500,
+			on_finish: function(data){
+				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) Teilnahme!</div>")
+					} // end if-statement	
+				} // end function(data)	
 			}
 
 		var test_procedure = {
