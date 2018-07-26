@@ -5,6 +5,8 @@
 		<script src="jspsych-6.0.4/jspsych.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-fullscreen.js"></script>
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     </head>
@@ -156,6 +158,26 @@
 		}
 		
 		timeline.push(procedure);
+		
+		// Asking for subjects' age
+		var age = {
+			type: "survey-text",
+			questions: [{prompt: "Geben Sie hier bitte Ihr Alter an (in Jahren):", rows:1, columns:2}], 
+			button_label: "Weiter"
+		};
+		timeline.push(age);		
+		
+		
+		// Asking for subjects' gender 
+		var options_gender = ["männlich", "weiblich"];
+		var gender = {
+			type: "survey-multi-choice",
+			questions: [{prompt: "Geben Sie hier bitte Ihr Geschlecht an:", options: options_gender}],
+			button_label: "Weiter"
+		};
+		timeline.push(gender);		
+		
+		
 		
 			
 		var goodbye = {
