@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My experiment</title> 
+        <title>Experiment</title> 
 		<script src="jspsych-6.0.4/jspsych.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
-	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
-	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
+	    <script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
+	    <script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-fullscreen.js"></script>
+		<script src="jspsych-6.0.4/plugins/jspsych-html-button-response.js"></script>
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+		<style>
+		    dl dd { margin-bottom: 20px; } /* just for the "bullet points" in the consent part*/
+		</style>
     </head>
     <body style="background-color:lightgrey;">
 	</body>
@@ -121,14 +125,28 @@
 		    	"<p>Geht es dem Muffin Ihrer Meinung nach <strong>" + c1.replace("es", "") +
 			"</strong>, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
 			"<p>Geht es dem Muffin Ihrer Meinung nach <strong>" + c2.replace("es", "") +
-			"</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
+			"</strong>, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
  			"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
  			"<div style='float: middle;'><img src='test_muffin1.png'></img>" +
  			"</div>"+
 			"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>";
 		
 		
-		 /*************************/
+	  	 /***********************/
+		/* Consent Information */
+	       /***********************/
+		
+		var consent_information = "<div style='margin-bottom:20px; font-size:80%;'><h2>Einverstaendnis und Studieninformationen</h2>"+
+			"<dl> <dt><strong>Wissenschaftliche Ziele</strong></dt>"+
+			"<dd>Dieses kleine Experiment dient der Auswahl geeigneter Bilder fuer eine Studie zur Interpretation uneindeutiger Inhalte.</dd><dt><strong>Persoenlicher Nutzen</strong></dt>"+
+			"<dd>Die Teilnahme an diesem Experiment kann leider nicht entlohnt werden. Wir danken Ihnen umso mehr vielmals fuer Ihre Teilnahme. </dd>"+
+			"<dt><strong>Freiwilligkeit</strong></dt>"+
+			"<dd>Die Teilnahme an diesem Experiment ist vollkommen freiwillig. Sie koennen Ihre Teilnahme jederzeit und ohne Angabe von Gruenden beenden und ohne dass Ihnen dadurch Nachteile entsehen, indem Sie die Taste 'q' druecken. In diesem Fall endet das Experiment augenblicklich ohne irgendwelche Ihrer Angaben zu speichern.</dd>"+
+			"<dt><strong>Datensicherung und Datenschutz</strong></dt>"+
+			"<dd>Im Zuge dieses Experiments werden <i>keinerlei</i> personen-identifizierende Daten (wie etwa IP-Adressen o.ae.) erhoben. Das heisst, die Daten (z. B. Ihr Tastendruck bei jedem der gezeigten Bilder) werden in rein anonymisierter Form abgespeichert und erlauben keine Rueckschluesse auf Ihre Person oder Ihren Standort. Die Daten werden auf einem lokalen Server an der Universitaet Frankfurt in einem Ordner gespeichert, der ausschliesslich den Studienmitarbeitern zugaenglich ist. </dd>"+
+			"</dl></div>"+"<div style='font-size:110%;'><p style='margin:0px'><i>Wenn Sie mit den oben stehenden Informationen einverstanden sind, druecken Sie bitte auf 'Einverstanden',  um an diesem Experiment teilzunehmen.</i></p><p style='margin:0px'><i>Wenn Sie mit den oben stehenden Informationen nicht einverstanden sind, klicken Sie bitte auf 'Nicht einverstanden', um das Experiment abzubrechen.</i></p></div>";
+			
+	  	 /*************************/
 		/*Define trial components*/
 	       /*************************/
 		
@@ -139,7 +157,7 @@
 			message: "<div>Bitte klicken Sie auf 'Weiter', um das Experiment im Vollbild-Modus zu sehen.</div>"+
 			"<div>Der Vollbild-Modus endet nach Ende des Experiments automatisch.</div>",
 			button_label: "<p>Weiter</p>"
-		};
+			};
 		
 		// Welcome trial
 		var welcome = {
@@ -147,6 +165,18 @@
 			stimulus: "<p>Herzlich Willkommen! Vielen Dank für Ihre Teilnahme an diesem Experiment.</p>" +
 			"<p>Drücken Sie eine beliebige Taste, um die Aufgabe kennenzulernen.</p>"
 			};	
+			
+		// Study Information and Consent
+		var consent_info = {
+			type: 'html-button-response',
+			stimulus: consent_information,
+			margin_vertical: '2px',
+			choices: ["Nicht einverstanden.", "Einverstanden."],
+			on_finish: function(data){
+				if(data.button_pressed == "0"){
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen 						während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) 						Teilnahme!</div>")}
+				}
+			};
 			
 		// Instruction trial
 		var instructions = {
@@ -211,7 +241,7 @@
 			timeline: [fixation, choice, iti],
 			timeline_variables: clouds_stimuli, 
 			randomize_order: true,
-		};
+			};
 		
 		// Clone/Copy instructions, procedure and test_procedure for SECOND BLOCK
 		var instructions2 = Object.assign({}, instructions);
@@ -231,20 +261,20 @@
 			type: "survey-multi-choice",
 			questions: [{prompt: "Geben Sie hier bitte Ihr Geschlecht an:", options: options_gender}],
 			button_label: "Weiter"
-		};
+			};
 		
 		// End Fullscreen
 		var end_fullscreen = {
 			type: 'fullscreen',
 			fullscreen_mode: false 
-		};
+			};
 		
 		// Goodbye/End of Experiment
 		var goodbye = {
 			type: "html-keyboard-response", 
 			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank für Ihre Teilnahme!</p>" +
 			"<p>Drücken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschließend können Sie das Browser-Fenster schließen.</p>"
-		};
+			};
 		
 		
 		
@@ -255,13 +285,14 @@
 		
 		timeline.push(start_fullscreen);	
 		timeline.push(welcome);
-
+		timeline.push(consent_info);
+		
 		//MODIFY FIRST BLOCK (instructions, test_procedure, procedure) depending on condition:	
 		if(b1 == "muffins"){
 			instructions.stimulus = instruct_muffins;
 			test_procedure.timeline_variables = test_muffins;
 			procedure.timeline_variables = muffins_stimuli;
-		};
+			};
 		
 		timeline.push(instructions);
 		timeline.push(test_procedure);
@@ -280,7 +311,7 @@
 			instructions2.stimulus = instruct_muffins;
 			test_procedure2.timeline_variables = test_muffins;
 			procedure2.timeline_variables = muffins_stimuli;				
-		}	
+			}	
 		
 		timeline.push(instructions2);
 		timeline.push(test_procedure2);
@@ -299,7 +330,7 @@
 			timeline:timeline,
 			on_finish:function() {jsPsych.data.displayData();}
 		});
-			
-				
+					
 	</script>  
 </html>
+
