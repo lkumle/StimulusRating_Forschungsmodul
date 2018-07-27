@@ -105,7 +105,7 @@
 		
 		 /*********************/
 		/* Task Instructions */
-	       /*********************/
+	   /*********************/
 		
 		var instruct_clouds = "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
 			"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach "+
@@ -150,14 +150,14 @@
 			
 	  	 /************************/
 		/* Concentrate-Instruct */
-	       /************************/		
+	   /************************/		
 		
 		var concentrate_text = "<p>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p style='margin:20px'> <strong>Vielen Dank!!</strong></p>"+
 			"<p>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>"
 		
 		 /*************************/
 		/*Define trial components*/
-	       /*************************/
+	   /*************************/
 		
 		// Fullscreen info
 		var start_fullscreen = {
@@ -283,12 +283,22 @@
 		};
 		
 		// Gender question
-		var options_gender = ["männlich", "weiblich"];
+		var options_gender = ["maennlich", "weiblich"];
 		var gender = {
 			type: "survey-multi-choice",
 			questions: [{prompt: "Geben Sie hier bitte Ihr Geschlecht an:", options: options_gender}],
 			button_label: "Weiter"
 		};
+		
+		
+		// Ask if subjects got disturbed during the experiment
+		var ask_concentrate = {
+			type: "html-button-response",
+			stimulus: "<p>Konnten Sie die Aufgabe ungestoert bearbeiten?</p>",
+			margin_vertical:"25px",
+			choices:["Ja, ich konnte die Aufgabe ungestoert bearbeiten.", "Nein, ich wurde leider gestoert."]
+		};
+		
 		
 		// End Fullscreen
 		var end_fullscreen = {
@@ -300,7 +310,7 @@
 		var goodbye = {
 			type: "html-keyboard-response", 
 			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank für Ihre Teilnahme!</p>" +
-			"<p>Drücken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschließend können Sie das Browser-Fenster schließen.</p>"
+			"<p>Druecken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschliessend koennen Sie das Browser-Fenster schliessen.</p>"
 		};
 		
 		
@@ -308,7 +318,7 @@
 		
 		 /*******************/
 		/* CREATE TIMELINE */
-	       /*******************/
+	   /*******************/
 		
 		timeline.push(start_fullscreen);	
 		timeline.push(welcome);
@@ -348,7 +358,8 @@
 		timeline.push(end_of_practice); // stays the same for all conditions
 		timeline.push(procedure2);	
 		timeline.push(age);
-		timeline.push(gender);		
+		timeline.push(gender);
+		timeline.push(ask_concentrate);		
 		timeline.push(end_fullscreen);
 		timeline.push(goodbye);
 		
