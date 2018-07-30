@@ -105,7 +105,7 @@
 		
 		 /*********************/
 		/* Task Instructions */
-	   /*********************/
+	       /*********************/
 		
 		var instruct_clouds = "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
 			"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach "+
@@ -134,7 +134,7 @@
 		
 	  	 /***********************/
 		/* Consent Information */
-	   /***********************/
+	       /***********************/
 		
 		var consent_information = "<div style='margin-bottom:20px; font-size:80%;'><h2>Einwilligung und Studieninformationen</h2>"+
 			"<dl><dt><strong>Studieninformation</strong></dt><dd>In dieserm kleinen Experiment werden Ihnen Bilder von Wolken und Muffins gezeigt, welche Sie via Tastendruck bewerten sollen. Ausserdem wuerden wir am Ende gerne Ihr Alter und Ihr Geschlecht erfahren.</dd>"
@@ -150,14 +150,14 @@
 			
 	  	 /************************/
 		/* Concentrate-Instruct */
-	   /************************/		
+	       /************************/		
 		
 		var concentrate_text = "<p>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p style='margin:20px'> <strong>Vielen Dank!!</strong></p>"+
 			"<p>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>"
 		
 		 /*************************/
 		/*Define trial components*/
-	   /*************************/
+	       /*************************/
 		
 		// Fullscreen info
 		var start_fullscreen = {
@@ -318,7 +318,7 @@
 		
 		 /*******************/
 		/* CREATE TIMELINE */
-	   /*******************/
+	       /*******************/
 		
 		timeline.push(start_fullscreen);	
 		timeline.push(welcome);
@@ -364,12 +364,27 @@
 		timeline.push(goodbye);
 		
 		
+		
+		 /****************************/
+		/* Function for data saving */
+	       /****************************/
+				
+		function saveData(name, data){
+		  var xhr = new XMLHttpRequest();
+		  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+		  xhr.setRequestHeader('Content-Type', 'application/json');
+		  xhr.send(JSON.stringify({filename: name, filedata: data}));
+		}
+		
+		
+		
 		 /**************************/
 		/* Initialise Experiment! */
 	       /**************************/
 		jsPsych.init({
 			timeline:timeline,
-			on_finish:function() {jsPsych.data.displayData();}
+			//on_finish:function() {jsPsych.data.displayData();}
+			on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
 		});
 					
 	</script>  
