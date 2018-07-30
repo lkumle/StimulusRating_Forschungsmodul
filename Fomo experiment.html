@@ -5,9 +5,10 @@
 		<script src="jspsych-6.0.4/jspsych.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
-	    <script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
-	    <script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-fullscreen.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-resize.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-button-response.js"></script>
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 		<style>
@@ -53,11 +54,11 @@
 
 		// for test-procedure
 		var test_clouds = [
-			{stimulus: "<div><img src='test_himmel_2.png' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='test_himmel_2.png' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='test_himmel_3.png' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='test_himmel_3.png' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='test_himmel_4.png' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='test_himmel_4.png' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
 			];
 			
@@ -72,17 +73,17 @@
 		
 		// for main procedure
 		var clouds_stimuli = [
-			{stimulus: "<div><img src='H1.png' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='H1.png' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H2.jpg' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='H2.jpg' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H3.jpg' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='H3.jpg' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H4.jpg' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='H4.jpg' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H5.jpg' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='H5.jpg' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H6.jpg' width='600' height='400'></img></div>" + 
+			{stimulus: "<div><img src='H6.jpg' width='900' height='600'></img></div>" + 
 			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
 			];
 		
@@ -134,7 +135,7 @@
 		
 	  	 /***********************/
 		/* Consent Information */
-	   /***********************/
+	       /***********************/
 		
 		var consent_information = "<div style='margin-bottom:20px; font-size:80%;'><h2>Einwilligung und Studieninformationen</h2>"+
 			"<dl><dt><strong>Studieninformation</strong></dt><dd>In dieserm kleinen Experiment werden Ihnen Bilder von Wolken und Muffins gezeigt, welche Sie via Tastendruck bewerten sollen. Ausserdem wuerden wir am Ende gerne Ihr Alter und Ihr Geschlecht erfahren.</dd>"
@@ -150,14 +151,26 @@
 			
 	  	 /************************/
 		/* Concentrate-Instruct */
-	   /************************/		
+	       /************************/		
 		
 		var concentrate_text = "<p>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p style='margin:20px'> <strong>Vielen Dank!!</strong></p>"+
 			"<p>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>"
+			
+
+	  	 /************************/
+		/* Resize-Instruct */
+	       /************************/		
+		
+		var resize_text = "<p>Um die Bilder, welche Sie gleich sehen werden, in der fuer Ihren Bildschirm richtigen Groesse darstellen zu koennen,</p>"
+			+ "<p>bitten wir Sie, sich nun eine Bankkarte zur Hand zu nehmen. Halten Sie die Karte direkt vor das blaue Feld</p>"+
+			"<p> und ziehen Sie die rechte untere Ecke des Feldes so weit, dass es es der Groesse Ihrer Bankkarte entspricht.</p>"+
+			"<p style='margin-top: 30px'>Wenn Sie bereit sind, klicken Sie bitte auf 'Weiter'.</p>"
+	
+			
 		
 		 /*************************/
 		/*Define trial components*/
-	   /*************************/
+	       /*************************/
 		
 		// Fullscreen info
 		var start_fullscreen = {
@@ -189,13 +202,26 @@
 			};
 			
 			
+		// Resize trial
+		var resize = {
+			type: 'resize',
+			item_width: 3 + 3/8,
+			item_height: 2 + 1/8,
+			prompt: resize_text,
+			pixels_per_unit: 150,
+			button_label: "Weiter"
+			};	
+			
+			
 		// concentrate trials
 		var concentrate = {
 			type: "html-button-response", 
 			stimulus: concentrate_text,
 			margin_vertical:'10px',
 			choices:["Ich bin bereit."]
-			};		
+			};	
+		
+		
 			
 		// Instruction trial
 		var instructions = {
@@ -309,7 +335,7 @@
 		// Goodbye/End of Experiment
 		var goodbye = {
 			type: "html-keyboard-response", 
-			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank für Ihre Teilnahme!</p>" +
+			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank fuer Ihre Teilnahme!</p>" +
 			"<p>Druecken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschliessend koennen Sie das Browser-Fenster schliessen.</p>"
 		};
 		
@@ -318,11 +344,12 @@
 		
 		 /*******************/
 		/* CREATE TIMELINE */
-	   /*******************/
+	       /*******************/
 		
 		timeline.push(start_fullscreen);	
 		timeline.push(welcome);
 		timeline.push(consent_info);
+		timeline.push(resize);
 		timeline.push(concentrate);
 		
 		//MODIFY FIRST BLOCK (instructions, test_procedure, procedure) depending on condition:	
