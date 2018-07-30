@@ -377,6 +377,11 @@
 		}
 		
 		
+		 /***********************/
+		/* Define outfile name */
+	       /***********************/
+		var outfile = "ibi_CloudsMuffinsRating_" + subject_id;
+		
 		
 		 /**************************/
 		/* Initialise Experiment! */
@@ -384,7 +389,7 @@
 		jsPsych.init({
 			timeline:timeline,
 			//on_finish:function() {jsPsych.data.displayData();}
-			on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+			on_finish: function(){ saveData(outfile, jsPsych.data.get().csv()); }
 		});
 					
 	</script>  
