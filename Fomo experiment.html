@@ -5,9 +5,10 @@
 		<script src="jspsych-6.0.4/jspsych.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
-	    <script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
-	    <script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-text.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-survey-multi-choice.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-fullscreen.js"></script>
+	    	<script src="jspsych-6.0.4/plugins/jspsych-resize.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-button-response.js"></script>
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 		<style>
@@ -134,7 +135,7 @@
 		
 	  	 /***********************/
 		/* Consent Information */
-	   /***********************/
+	       /***********************/
 		
 		var consent_information = "<div style='margin-bottom:20px; font-size:80%;'><h2>Einwilligung und Studieninformationen</h2>"+
 			"<dl><dt><strong>Studieninformation</strong></dt><dd>In dieserm kleinen Experiment werden Ihnen Bilder von Wolken und Muffins gezeigt, welche Sie via Tastendruck bewerten sollen. Ausserdem wuerden wir am Ende gerne Ihr Alter und Ihr Geschlecht erfahren.</dd>"
@@ -150,14 +151,14 @@
 			
 	  	 /************************/
 		/* Concentrate-Instruct */
-	   /************************/		
+	       /************************/		
 		
 		var concentrate_text = "<p>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p style='margin:20px'> <strong>Vielen Dank!!</strong></p>"+
 			"<p>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>"
 		
 		 /*************************/
 		/*Define trial components*/
-	   /*************************/
+	       /*************************/
 		
 		// Fullscreen info
 		var start_fullscreen = {
@@ -195,7 +196,18 @@
 			stimulus: concentrate_text,
 			margin_vertical:'10px',
 			choices:["Ich bin bereit."]
-			};		
+			};	
+		
+		
+		// Resize trial
+		var resize = {
+			type: 'resize',
+			item_width: 3 + 3/8,
+			item_height: 2 + 1/8,
+			prompt: "<p>Click and drag the lower right corner of the box until the box is the same size as a credit card held up to the screen.</p>",
+			pixels_per_unit: 150
+			};
+		
 			
 		// Instruction trial
 		var instructions = {
@@ -318,12 +330,13 @@
 		
 		 /*******************/
 		/* CREATE TIMELINE */
-	   /*******************/
+	       /*******************/
 		
 		timeline.push(start_fullscreen);	
 		timeline.push(welcome);
 		timeline.push(consent_info);
 		timeline.push(concentrate);
+		timeline.push(resize);
 		
 		//MODIFY FIRST BLOCK (instructions, test_procedure, procedure) depending on condition:	
 		if(b1 == "muffins"){
