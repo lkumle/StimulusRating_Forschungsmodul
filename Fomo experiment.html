@@ -12,8 +12,10 @@
 		<script src="jspsych-6.0.4/plugins/jspsych-html-button-response.js"></script>
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 		<style>
-		    dl dd { margin-bottom: 20px; } /* just for the "bullet points" in the consent part*/
-			p {font-size: 25px; }
+		    dl dd { margin-bottom: 20px; }; /* just for the "bullet points" in the consent part*/
+			p {font-size: 35px; };
+			/*div.stim {position:absolute ; left:50%; top:50%;};*/
+			/*div.resp_remind{position:absolute; margin-left:-70%; margin-top:15%; text-align:center; width:100%};*/
 		</style>
     </head>
     <body style="background-color:lightgrey;">
@@ -55,52 +57,107 @@
 
 		// for test-procedure
 		var test_clouds = [
-			{stimulus: "<div><img src='test_himmel_2.png' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='test_himmel_3.png' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='test_himmel_4.png' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
+			{stimulus: "<div><img src='test_himmel_2.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='test_himmel_3.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='test_himmel_4.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				}
 			];
+	
 			
 		var test_muffins = [
-			{stimulus: "<div><img src='test_muffin2.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='test_muffin3.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='test_muffin4.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
+			{stimulus: "<div><img src='test_muffin2.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='test_muffin3.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='test_muffin4.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				}
 			];	
 		
 		// for main procedure
 		var clouds_stimuli = [
-			{stimulus: "<div><img src='H1.png' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H2.jpg' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H3.jpg' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H4.jpg' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H5.jpg' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='H6.jpg' width='900' height='600'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
+			{stimulus: "<div><img src='H1.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='H2.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='H3.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='H4.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='H5.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='H6.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				}
 			];
 		
 		var muffins_stimuli = [
-			{stimulus: "<div><img src='M1.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='M2.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='M3.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='M4.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='M5.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"},
-			{stimulus: "<div><img src='M6.png' width='600' height='400'></img></div>" + 
-			"<div><img src='thumbs.png' width='300' height='150'></img></div>"}
+			{stimulus: "<div><img src='M1.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"	
+				},
+			{stimulus: "<div><img src='M2.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='M3.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='M4.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='M5.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				},
+			{stimulus: "<div><img src='M6.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
+				+"</strong><br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				}
 			];
 		
 		
@@ -209,7 +266,7 @@
 			item_height: 2 + 1/8,
 			prompt: resize_text,
 			pixels_per_unit: 150,
-			button_label: "<p style='font-size:16px;'>Weiter</p>"
+			button_label: "<p style='font-size:100%;'>Weiter</p>"
 			};	
 			
 			
@@ -218,7 +275,7 @@
 			type: "html-button-response", 
 			stimulus: concentrate_text,
 			margin_vertical:'15px',
-			choices:["<p>Ich bin bereit.</p>"]
+			choices:["<p style='font-size:100%'>Ich bin bereit.</p>"]
 			};	
 		
 		
@@ -292,7 +349,7 @@
 		// Start Task 2
 		var pause = {
 		    type: "html-keyboard-response", 
-			stimulus: "<p>Die erste Aufgabe ist geschafft, vielen Dank!</p><p> Gerne koennen Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p>Wenn Sie bereit sind, druecken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>"
+			stimulus: "<p>Die erste Aufgabe ist geschafft, vielen Dank!</p><p> Gerne koennen Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p><br>Wenn Sie bereit sind, druecken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>"
 			};	
 			
 		
@@ -304,7 +361,7 @@
 		// Age question
 		var age = {
 			type: "survey-text",
-			questions: [{prompt: "<p>Geben Sie hier bitte Ihr Alter an:</p>", rows:10, columns:25}], 
+			questions: [{prompt: "<p>Geben Sie hier bitte Ihr Alter an:</p>", rows:1, columns:6}], 
 			button_label: "<p>Weiter</p>"
 		};
 		
