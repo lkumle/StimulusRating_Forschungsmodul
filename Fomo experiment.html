@@ -13,7 +13,6 @@
 		<link href="jspsych-6.0.4/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 		<style>
 		    dl dd { margin-bottom: 20px; }; /* just for the "bullet points" in the consent part*/
-			p {font-size: 35px; };
 			/*div.stim {position:absolute ; left:50%; top:50%;};*/
 			/*div.resp_remind{position:absolute; margin-left:-70%; margin-top:15%; text-align:center; width:100%};*/
 		</style>
@@ -50,7 +49,8 @@
 	       /********************************/
 		jsPsych.data.addProperties({ID: subject_id, condition_order: condi_order, condition_keys: condi_keys});
 		
-		
+
+
 		 /*********************/
 		/* All stimulus sets */
 	       /*********************/	
@@ -58,107 +58,108 @@
 		// for test-procedure
 		var test_clouds = [
 			{stimulus: "<div><img src='test_himmel_2.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='test_himmel_3.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='test_himmel_4.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				}
 			];
 	
 			
 		var test_muffins = [
 			{stimulus: "<div><img src='test_muffin2.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='test_muffin3.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='test_muffin4.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				}
 			];	
 		
 		// for main procedure
 		var clouds_stimuli = [
 			{stimulus: "<div><img src='H1.png' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='H2.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='H3.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='H4.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='H5.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>"
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='H6.jpg' width='900' height='600' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-70%; margin-top:15%;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:70%; margin-top:15%; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				}
 			];
 		
 		var muffins_stimuli = [
 			{stimulus: "<div><img src='M1.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"	
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"	
 				},
 			{stimulus: "<div><img src='M2.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='M3.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='M4.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='M5.png' width='600' height='400' position:absolute left:50% top:50%></img></div>"
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				},
 			{stimulus: "<div><img src='M6.png' width='600' height='400' position:absolute left:50% top:50%></img></div>" 
-				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c2.replace("es", "")
-				+"</strong><br><small>F</small></p></div>"
-				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '><strong>"+c1.replace("es","")+"</strong><br><small>J</small></p></div>"
+				+ "<div style='position:absolute; margin-left:-630px; margin-top:237px;text-align:center;width:100%'><p style='font-size:22px; '>"+c2.replace("es", "")
+				+"<br><small>F</small></p></div>"
+				+ "<div style='position: absolute; margin-left:630px; margin-top:237px; text-align:center;width:100%'><p style='font-size:22px; '>"+c1.replace("es","")+"<br><small>J</small></p></div>"
 				}
 			];
+		
 		
 		
 		
@@ -166,29 +167,29 @@
 		/* Task Instructions */
 	       /*********************/
 		
-		var instruct_clouds = "<p>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
-			"<p>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach "+
+		var instruct_clouds = "<p style='font-size:26px;'>In diesem Experiment werden Ihnen Bilder von Wolken gezeigt.</p>"+
+			"<p style='font-size:26px;'>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach "+
 			"um gutes oder schlechtes Wetter handelt.</p>"+
-			"<p>Handelt es sich Ihrer Meinung nach um <strong>" + c1 +
+			"<p style='font-size:26px;'>Handelt es sich Ihrer Meinung nach um <strong>" + c1 +
 			"</strong> Wetter, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
-			"<p>Handelt es sich Ihrer Meinung nach um <strong>" + c2 +
+			"<p style='font-size:26px;'>Handelt es sich Ihrer Meinung nach um <strong>" + c2 +
 			"</strong> Wetter, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
- 			"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
+ 			"<p style='font-size:26px;'>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
  			"<div style='float: middle;'><img src='test_himmel_2.png'></img>" +
  			"</div>"+
-			"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>";
+			"<p style='font-size:26px;'>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>";
 		
-		var instruct_muffins = "<p>In diesem Experiment werden Ihnen Bilder von Muffins gezeigt.</p>"+
-		    	"<p>Ihre Aufgabe ist es, zu bewerten, ob es dem Muffin Ihrer Meinung nach "+
+		var instruct_muffins = "<p style='font-size:26px;'>In diesem Experiment werden Ihnen Bilder von Muffins gezeigt.</p>"+
+		    	"<p style='font-size:26px;'>Ihre Aufgabe ist es, zu bewerten, ob es dem Muffin Ihrer Meinung nach "+
 		    	"gut oder schlecht geht.</p>"+
-		    	"<p>Geht es dem Muffin Ihrer Meinung nach <strong>" + c1.replace("es", "") +
+		    	"<p style='font-size:26px;'>Geht es dem Muffin Ihrer Meinung nach <strong>" + c1.replace("es", "") +
 			"</strong>, druecken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
-			"<p>Geht es dem Muffin Ihrer Meinung nach <strong>" + c2.replace("es", "") +
+			"<p style='font-size:26px;'>Geht es dem Muffin Ihrer Meinung nach <strong>" + c2.replace("es", "") +
 			"</strong>, druecken Sie die Taste <strong>F</strong> mit dem linken Zeigefinger.</p>"+
- 			"<p>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
+ 			"<p style='font-size:26px;'>Fuer Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
  			"<div style='float: middle;'><img src='test_muffin1.png'></img>" +
  			"</div>"+
-			"<p>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>";
+			"<p style='font-size:26px;'>Druecken Sie eine beliebige Taste, um mit einigen Uebungsdurchgaengen zu beginnen.</p>";
 		
 		
 	  	 /***********************/
@@ -204,7 +205,7 @@
 			"<dd>Die Teilnahme an diesem Experiment ist vollkommen freiwillig. Sie koennen Ihre Teilnahme jederzeit ohne Angabe von Gruenden beenden, ohne dass Ihnen dadurch Nachteile entsehen. Druecken Sie hierfuer jederzeit die Taste 'q'. In diesem Fall endet das Experiment augenblicklich ohne irgendwelche Ihrer Angaben zu speichern.</dd>"+
 			"<dt><strong>Datensicherung und Datenschutz</strong></dt>"+
 			"<dd>Im Zuge dieses Experiments werden <i>keinerlei</i> personen-identifizierende Daten (wie etwa IP-Adressen oder aehnliches) erhoben. Das heisst, die Daten (z. B. Ihr Tastendruck bei jedem der gezeigten Bilder) werden in rein anonymisierter Form abgespeichert und erlauben keine Rueckschluesse auf Ihre Person oder Ihren Standort. Die Daten werden auf einem lokalen Server an der Universitaet Frankfurt in einem Ordner gespeichert, der ausschliesslich den Studienmitarbeitern zugaenglich ist. </dd>"+
-			"</dl></div>"+"<div style='font-size:16px;'><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den oben stehenden Informationen einverstanden sind, klicken Sie bitte auf 'Einverstanden',  um an diesem Experiment teilzunehmen.</i></p><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den oben stehenden Informationen nicht einverstanden sind, klicken Sie bitte auf 'Nicht einverstanden', um das Experiment abzubrechen.</i></p></div>";
+			"</dl></div>"+"<div style='font-size:16px;'><p style='margin:0px; font-size:16px;'><br><br><i>Wenn Sie mit den oben stehenden Informationen einverstanden sind, klicken Sie bitte auf 'Einverstanden',  um an diesem Experiment teilzunehmen.</i></p><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den oben stehenden Informationen nicht einverstanden sind, klicken Sie bitte auf 'Nicht einverstanden', um das Experiment abzubrechen.</i></p></div>";
 			
 			
 			
@@ -213,7 +214,7 @@
 	       /************************/		
 		
 		var resize_text = "<p style='font-size:16px;'>Um die Bilder, welche Sie gleich sehen werden, in der fuer Ihren Bildschirm richtigen Groesse darstellen zu koennen,</p>" + "<p style='font-size:16px;'>bitten wir Sie, sich nun eine Bankkarte zur Hand zu nehmen. Halten Sie die Karte direkt vor das blaue Feld</p>"+
-			"<p style='font-size:16px;'> und ziehen Sie die rechte untere Ecke des Feldes so weit, dass es es der Groesse Ihrer Bankkarte entspricht.</p>"+
+			"<p style='font-size:16px;'> und ziehen Sie die rechte untere Ecke des Feldes so weit, dass es der Groesse Ihrer Bankkarte entspricht.</p>"+
 			"<p style='margin-top: 30px; font-size:16px'>Wenn Sie bereit sind, klicken Sie bitte auf 'Weiter'.</p>"
 	
 			
@@ -222,7 +223,7 @@
 		/* Concentrate-Instruct */
 	       /************************/		
 		
-		var concentrate_text = "<p>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p> <strong>Vielen Dank!!</strong></p>"+ "<p>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>";
+		var concentrate_text = "<p style='font-size:26px;'>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p style='font-size:26px;'>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p style='font-size:26px;'> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p style='font-size:26px;'> <strong>Vielen Dank!!</strong></p>"+ "<p style='font-size:26px;'>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>";
 						
 		
 		 /*************************/
@@ -275,7 +276,7 @@
 			type: "html-button-response", 
 			stimulus: concentrate_text,
 			margin_vertical:'15px',
-			choices:["<p style='font-size:100%'>Ich bin bereit.</p>"]
+			choices:["<p style='font-size:20px'>Ich bin bereit.</p>"]
 			};	
 		
 		
@@ -294,7 +295,7 @@
 			trial_duration: 500,
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
-					jsPsych.endExperiment("<div><p>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
 					} // end if-statement	
 				} // end function(data)
 			};
@@ -306,7 +307,7 @@
 			choices: ['f', 'j', 'q'], // corresponding to 70, 74 and 81 in js key code, respectively (and the key code is logged)
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
-					jsPsych.endExperiment("<div><p>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><pstyle='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
 					} // end if-statement	
 				} // end function(data)
 			};
@@ -319,7 +320,7 @@
 			trial_duration: 500,
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
-					jsPsych.endExperiment("<div><p>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
 					} // end if-statement	
 				} // end function(data)	
 			};
@@ -334,8 +335,8 @@
 		// End-of-Practice-Trials Trial
 		var end_of_practice = {
 			type: "html-keyboard-response", 
-			stimulus: "<p>Das waren die Uebungsdurchgaenge.</p>" +
-			"<p>Druecken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>"
+			stimulus: "<p style='font-size:30px;'>Das waren die Uebungsdurchgaenge.</p>" +
+			"<p style='font-size:30px;'>Druecken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>"
 			};
 	
 		// Experiment Trials (combined)
@@ -349,7 +350,7 @@
 		// Start Task 2
 		var pause = {
 		    type: "html-keyboard-response", 
-			stimulus: "<p>Die erste Aufgabe ist geschafft, vielen Dank!</p><p> Gerne koennen Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p><br>Wenn Sie bereit sind, druecken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>"
+			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft, vielen Dank!</p><p style='font-size:30px;'> Gerne koennen Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, druecken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>"
 			};	
 			
 		
@@ -361,25 +362,25 @@
 		// Age question
 		var age = {
 			type: "survey-text",
-			questions: [{prompt: "<p>Geben Sie hier bitte Ihr Alter an:</p>", rows:1, columns:6}], 
-			button_label: "<p>Weiter</p>"
+			questions: [{prompt: "<p style='font-size:20px;'>Geben Sie hier bitte Ihr Alter an:</p>", rows:1, columns:6}], 
+			button_label: "<p style='font-size:16px;'>Weiter</p>"
 		};
 		
 		// Gender question
-		var options_gender = ["maennlich", "weiblich"]; // ["<p>maennlich</p>", "<p>weiblich</p>"]
+		var options_gender = ["<strong>maennlich</strong>", "<strong>weiblich</strong>"] ;// ["maennlich", "weiblich"]; 
 		var gender = {
 			type: "survey-multi-choice",
-			questions: [{prompt: "<p>Geben Sie hier bitte Ihr Geschlecht an:</p>", options: options_gender}],
-			button_label: "Weiter" //"<p>Weiter</p>"
+			questions: [{prompt: "<p style='font-size:26px;'>Geben Sie hier bitte Ihr Geschlecht an:</p>", options: options_gender}],
+			button_label: "Weiter" //"<p>Weiter</p>" --> doesn't work
 		};
 		
 		
 		// Ask if subjects got disturbed during the experiment
 		var ask_concentrate = {
 			type: "html-button-response",
-			stimulus: "<p>Konnten Sie die Aufgabe ungestoert bearbeiten?</p>",
+			stimulus: "<p style='font-size:26px;'>Konnten Sie die Aufgabe ungestoert bearbeiten?</p>",
 			margin_vertical:"25px",
-			choices:["<p>Ja, ich konnte die Aufgabe ungestoert bearbeiten.</p>", "<p>Nein, ich wurde leider gestoert.</p>"]
+			choices:["<p style='font-size:20px;'>Ja, ich konnte die Aufgabe ungestoert bearbeiten.</p>", "<p style='font-size:20px;'>Nein, ich wurde leider gestoert.</p>"]
 		};
 		
 		
@@ -392,8 +393,8 @@
 		// Goodbye/End of Experiment
 		var goodbye = {
 			type: "html-keyboard-response", 
-			stimulus: "<p>Das Experiment ist nun zu Ende. Vielen Dank fuer Ihre Teilnahme!</p>" +
-			"<p>Druecken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschliessend koennen Sie das Browser-Fenster schliessen.</p>"
+			stimulus: "<p style='font-size:25px;'>Das Experiment ist nun zu Ende. Vielen Dank fuer Ihre Teilnahme!</p>" +
+			"<p style='font-size:25px;'>Druecken Sie eine beliebige Taste, um die Aufgabe zu beenden. Anschliessend koennen Sie das Browser-Fenster schliessen.</p>"
 		};
 		
 		
