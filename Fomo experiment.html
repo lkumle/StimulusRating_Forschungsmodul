@@ -208,9 +208,9 @@
 			
 			
 			
-	  	 /************************/
-		/* Resize-Instruct */
-	       /************************/		
+	   /************************/
+		/**** Resize-Instruct ***/
+	 /************************/		
 		
 		var resize_text = "<p style='font-size:16px;'>Um die Bilder, welche Sie gleich sehen werden, in der fuer Ihren Bildschirm richtigen Groesse darstellen zu koennen,</p>" + "<p style='font-size:16px;'>bitten wir Sie, sich nun eine Bankkarte zur Hand zu nehmen. Halten Sie die Karte direkt vor das blaue Feld</p>"+
 			"<p style='font-size:16px;'> und ziehen Sie die rechte untere Ecke des Feldes so weit, dass es der Groesse Ihrer Bankkarte entspricht.</p>"+
@@ -218,16 +218,16 @@
 	
 			
 			
-	  	 /************************/
+	   /************************/
 		/* Concentrate-Instruct */
-	       /************************/		
+	 /************************/		
 		var concentrate_text = "<p style='font-size:26px;'>Fuer unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestoert</strong> bearbeiten koennen.</p>" + "<p style='font-size:26px;'>Wir bitten Sie daher, sich fuer die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p style='font-size:26px;'> und nach Moeglichkeit keine weiteren Aktivitaeten parallel zu verfolgen.</p><p style='font-size:26px;'> <strong>Vielen Dank!!</strong></p>"+ "<p style='font-size:26px;'>Klicken Sie auf 'Ich bin bereit.', um mit der ersten Aufgabe zu starten.</p>";
 
 						
 		
 		 /*************************/
 		/*Define trial components*/
-	       /*************************/
+	 /*************************/
 		
 		// Fullscreen info
 		var start_fullscreen = {
@@ -449,12 +449,32 @@
 		timeline.push(goodbye);
 		
 		
+		
+		 /****************************/
+		/* Function for data saving */
+	       /****************************/
+				
+		function saveData(name, data){
+		  var xhr = new XMLHttpRequest();
+		  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+		  xhr.setRequestHeader('Content-Type', 'application/json');
+		  xhr.send(JSON.stringify({filename: name, filedata: data}));
+		}
+		
+		
+		 /***********************/
+		/* Define outfile name */
+	       /***********************/
+		var outfile = "ibi_CloudsMuffinsRating_" + subject_id;
+		
+		
 		 /**************************/
 		/* Initialise Experiment! */
 	       /**************************/
 		jsPsych.init({
 			timeline:timeline,
-			//on_finish:function() {jsPsych.data.displayData();}
+			//on_finish:function() {jsPsych.data.displayData();} // use when testing experiment without Web Server running
+			on_finish: function(){ saveData(outfile, jsPsych.data.get().csv()); } // use when testing experiment with Web Server running
 		});
 					
 	</script>  
