@@ -507,7 +507,7 @@
 		jsPsych.init({
 			timeline:timeline,
 			on_finish: function(){ 
-				if (jsPsych.data.getLastTrialData().select('ID').values[0] != 'abort') {saveData(outfile, jsPsych.data.getLastTrialData().csv()); }; // i.e. actually save the data
+				if (jsPsych.data.getLastTrialData().select('ID').values[0] != 'abort') {saveData(outfile, jsPsych.data.get().csv()); }; // i.e. actually save the data
 				if (jsPsych.data.getLastTrialData().select('ID').values[0] == 'abort'){saveData(outfile, " "); } // i.e. do NOT save data if subject has aborted the experiment
 			} 
 			
