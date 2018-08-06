@@ -255,7 +255,8 @@
 			choices: ["Nicht einverstanden.", "Einverstanden."],
 			on_finish: function(data){
 				if(data.button_pressed == "0"){
-					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen 						während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) 						Teilnahme!</div>")}
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) Teilnahme!</div>")}
 				}
 			};
 			
@@ -276,16 +277,27 @@
 			type: "html-button-response", 
 			stimulus: concentrate_text,
 			margin_vertical:'15px',
-			choices:["<p style='font-size:20px'>Ich bin bereit.</p>"]
+			choices:["<p style='font-size:20px'>Ich bin bereit.</p>", "<p style='font-size:20px'>Ich kann gerade doch nicht.</p>"],
+			on_finish: function(data){
+				if(data.button_pressed == "1"){
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) Teilnahme!</div>")}
+				}			
 			};	
-		
 		
 			
 		// Instruction trial
 		var instructions = {
 			type: 'html-keyboard-response',
-			stimulus: instruct_clouds
+			stimulus: instruct_clouds,
+			on_finish: function(data){
+				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					} // end if-statement	
+				} // end function(data)					
 			};
+		
 		
 		// Fixation cross
 		var fixation = {
@@ -295,6 +307,7 @@
 			trial_duration: 500,
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.data.get().addToLast({ID: 'abort'});
 					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
 					} // end if-statement	
 				} // end function(data)
@@ -307,7 +320,8 @@
 			choices: ['f', 'j', 'q'], // corresponding to 70, 74 and 81 in js key code, respectively (and the key code is logged)
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
-					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><pstyle='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div> <p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
 
 					} // end if-statement	
 				} // end function(data)
@@ -321,6 +335,7 @@
 			trial_duration: 500,
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.data.get().addToLast({ID: 'abort'});
 					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
 					} // end if-statement	
 				} // end function(data)	
@@ -337,7 +352,13 @@
 		var end_of_practice = {
 			type: "html-keyboard-response", 
 			stimulus: "<p style='font-size:30px;'>Das waren die Uebungsdurchgaenge.</p>" +
-			"<p style='font-size:30px;'>Druecken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>"
+			"<p style='font-size:30px;'>Druecken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>",
+			on_finish: function(data){
+				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					} // end if-statement	
+				} // end function(data)				
 			};
 	
 		// Experiment Trials (combined)
@@ -351,7 +372,13 @@
 		// Start Task 2
 		var pause = {
 		    type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft, vielen Dank!</p><p style='font-size:30px;'> Gerne koennen Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, druecken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>"
+			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft, vielen Dank!</p><p style='font-size:30px;'> Gerne koennen Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, druecken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>",
+			on_finish: function(data){
+				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div><p style='font-size:30px;'>Sie haben sich entschieden, das Experiment abzubrechen. Es wurden keine Ihrer gemachten Angaben gespeichert.</p></div><div><p style='font-size:30px;'>Vielen Dank fuer Ihre (teilweise) Teilnahme!</p></div>")
+					} // end if-statement	
+				} // end function(data)				
 			};	
 			
 		
@@ -381,7 +408,12 @@
 			type: "html-button-response",
 			stimulus: "<p style='font-size:26px;'>Konnten Sie die Aufgabe ungestoert bearbeiten?</p>",
 			margin_vertical:"25px",
-			choices:["<p style='font-size:20px;'>Ja, ich konnte die Aufgabe ungestoert bearbeiten.</p>", "<p style='font-size:20px;'>Nein, ich wurde leider gestoert.</p>"]
+			choices:["<p style='font-size:20px;'>Ja, ich konnte die Aufgabe ungestoert bearbeiten.</p>", "<p style='font-size:20px;'>Nein, ich wurde leider gestoert.</p>", "<p style='font-size:20px;'>Nein, bitte verwerfen Sie alle meine Angaben.</p>"],
+			on_finish: function(data){
+				if(data.button_pressed == "2"){
+					jsPsych.data.get().addToLast({ID: 'abort'});
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Nichts der von Ihnen während Ihrer Teilnahme gesammelten Daten wurde gespeichert.<div/><div>Vielen Dank für Ihre (teilweise) Teilnahme!</div>")}
+				}				
 		};
 		
 		
@@ -474,9 +506,15 @@
 	       /**************************/
 		jsPsych.init({
 			timeline:timeline,
-			//on_finish:function() {jsPsych.data.displayData();} // use when testing experiment without Web Server running
-			on_finish: function(){ saveData(outfile, jsPsych.data.get().csv()); } // use when testing experiment with Web Server running
+			on_finish: function(){ 
+				if (jsPsych.data.getLastTrialData().select('ID').values[0] != 'abort') {saveData(outfile, jsPsych.data.getLastTrialData().csv()); }; // i.e. actually save the data
+				if (jsPsych.data.getLastTrialData().select('ID').values[0] == 'abort'){saveData(outfile, " "); } // i.e. do NOT save data if subject has aborted the experiment
+			} 
+			
+			// use the following instead, if running without active web server:
+				//on_finish:function() {jsPsych.data.displayData();}				
 		});
+
 					
 	</script>  
 </html>
