@@ -426,7 +426,7 @@
 		// Goodbye/End of Experiment
 		var goodbye = {
 			type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:25px;'>Das Experiment ist nun zu Ende. Druecken Sie eine beliebige Taste, um die Aufgabe zu beenden.</p>" +
+			stimulus: "<p style='font-size:25px;'>Das Experiment ist nun zu Ende. Drücken Sie eine beliebige Taste, um die Aufgabe zu beenden.</p>" +
 			"<p style='font-size:25px;'> Vielen Dank für Ihre Teilnahme!</p>"
 		};
 		
@@ -508,7 +508,7 @@
 			timeline:timeline,
 			on_finish: function(){ 
 				if (jsPsych.data.getLastTrialData().select('ID').values[0] != 'abort') {saveData(outfile, jsPsych.data.get().csv()); }; // i.e. actually save the data
-				if (jsPsych.data.getLastTrialData().select('ID').values[0] == 'abort'){saveData(outfile, " "); } // i.e. do NOT save data if subject has aborted the experiment
+				//if (jsPsych.data.getLastTrialData().select('ID').values[0] == 'abort'){saveData(outfile, " "); } // i.e. do NOT save data if subject has aborted the experiment
 			} 
 			
 			// use the following instead, if running without active web server:
