@@ -1278,7 +1278,7 @@
 	         /************************/
 		/* Concentrate-Instruct */
 	       /************************/		
-		var concentrate_text = "<p style='font-size:26px;'>Für unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestört</strong> bearbeiten können.</p>" + "<p style='font-size:26px;'>Wir bitten Sie daher, sich für die Bearbeitung der Aufgaben an einen ruhigen Ort zu begeben</p><p style='font-size:26px;'> und nach Möglichkeit keine weiteren Aktivitäten parallel zu verfolgen.</p><p style='font-size:26px;'> <strong>Vielen Dank!!</strong></p>"+ "<p style='font-size:26px;'>Klicken Sie auf 'Ich bin bereit', um mit der ersten Aufgabe zu starten.</p>";
+		var concentrate_text = "<p style='font-size:26px;'>Für unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestört</strong> bearbeiten können.</p>" + "<p style='font-size:26px;'>Wir bitten Sie daher, sich für die Bearbeitung der Aufgaben an einen ruhigen Ort zu begeben</p><p style='font-size:26px;'> und nach Möglichkeit keine weiteren Aktivitäten parallel zu verfolgen.</p><p style='font-size:26px;'> <strong>Vielen Dank!!</strong></p>"+ "<p style='font-size:26px;'><br><br>Klicken Sie auf 'Ich bin bereit', um mit der ersten Aufgabe zu starten.</p>";
 
 						
 		
@@ -1408,7 +1408,8 @@
 		var end_of_practice = {
 			type: "html-keyboard-response", 
 			stimulus: "<p style='font-size:30px;'>Das waren die drei Übungsdurchgänge.<br><br> In der folgenden Hauptaufgabe sollen Sie 100 Bilder bewerten. Das dauert ungefähr 7 Minuten.</p>" +
-			"<p style='font-size:30px;'>Wenn Sie bereit sind, mit der Bearbeitung der Aufgabe zu beginnen, klicken Sie unten auf die Schaltfläche 'Weiter'.</p>",
+			"<p style='font-size:30px;'><br>Wenn Sie bereit sind, mit der Bearbeitung der Aufgabe zu beginnen, drücken Sie bitte die Leertaste.</p>",
+			choices: [32],
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1428,7 +1429,8 @@
 		// Start Task 2
 		var pause = {
 		    type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft. Vielen Dank!</p><p style='font-size:30px;'> Gerne können Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe beginnen.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, die zweite Aufgabe zu bearbeiten, drücken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>",
+			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft. Vielen Dank!</p><p style='font-size:30px;'> Gerne können Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe beginnen.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, die zweite Aufgabe zu bearbeiten, drücken Sie die Leertaste, um mit der zweiten Aufgabe fortzufahren.</p>",
+			choices: [32],
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1462,12 +1464,12 @@
 		// Ask if subjects got disturbed during the experiment
 		var ask_concentrate = {
 			type: "html-button-response",
-			stimulus: "<p style='font-size:26px;'>Damit wir wissen, ob wir Ihre Angaben für unsere Analysen verwenden können, möchten wir Sie abschließend noch fragen, ob Sie die Aufgabe ungestört bearbeitn konnten.</p>",
+			stimulus: "<p style='font-size:26px;'>Damit wir wissen, ob wir Ihre Angaben für unsere Analysen verwenden können, möchten wir Sie abschließend noch fragen, ob Sie die Aufgabe ungestört bearbeiten konnten.</p>",
 			margin_vertical:"25px",
-			choices:["<p style='font-size:20px;'>Ja! Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p>", "<p style='font-size:20px;'>Nein! Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p>"],
-			button_html: ["<button class='jspsych-btn_green'><p style='font-size:20px;'>Ja! Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p></button>", "<button class='jspsych-btn_red'><p style='font-size:20px;'>Nein! Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p></button>"],
+			choices:["<p style='font-size:20px;'><strong>Ja!</strong> Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p>", "<p style='font-size:20px;'><strong>Nein!</strong> Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p>"],
+			button_html: ["<button class='jspsych-btn_green'><p style='font-size:20px;'>Ja! Ich konnte die Aufgabe ungestört bearbeiten.<br> Bitte speichern Sie meine Angaben.</p></button>", "<button class='jspsych-btn_red'><p style='font-size:20px;'>Nein! Ich wurde gestört. <br>Bitte verwerfen Sie alle meine Angaben. </p></button>"],
 			on_finish: function(data){
-				if(data.button_pressed == "2"){
+				if(data.button_pressed == "1"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
 					jsPsych.endExperiment("<div style='font-size:25px;'>Sie haben sich entschieden, das Experiment abzubrechen. Keine Ihrer Angaben wurde gespeichert.<br> Um den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<div/><div style='font-size:25px;'><br><br>Vielen Dank!</div>")}
 				}				
