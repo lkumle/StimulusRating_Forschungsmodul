@@ -1214,9 +1214,9 @@
 		/* Task Instructions */
 	       /*********************/
 		
-		var instruct_clouds = "<p style='font-size:26px;'>In diesem Experiment werden Ihnen Himmelsbilder gezeigt.</p>"+
-			"<p style='font-size:26px;'>Ihre Aufgabe ist es, zu bewerten, ob es sich Ihrer Meinung nach "+
-			"um gutes oder schlechtes Wetter handelt.</p>"+
+		var instruct_clouds = "<p style='font-size:26px;'>In der folgenden Aufgabe werden Ihnen Himmelsbilder gezeigt.</p>"+
+			"<p style='font-size:26px;'>Sie sollen angeben, ob es sich Ihrer Meinung nach "+
+			"um einen Himmel bei gutem oder schlechtem Wetter handelt.</p>"+
 			"<p style='font-size:26px;'>Handelt es sich Ihrer Meinung nach um <strong>" + c1 +
 			"</strong> Wetter, drücken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
 			"<p style='font-size:26px;'>Handelt es sich Ihrer Meinung nach um <strong>" + c2 +
@@ -1224,10 +1224,11 @@
  			"<p style='font-size:26px;'>Für Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
  			"<div style='float: middle;'><img src='DSC_4196.jpg' width='600' height='400'></img>" +
  			"</div>"+
-			"<p style='font-size:26px;'>Drücken Sie eine beliebige Taste, um mit einigen Übungsdurchgängen zu beginnen.</p>";
+			"<p style='font-size:26px;'>Wir präsentieren Ihnen zunächst drei Übungsdurchgänge, damit Sie sich mit dem Format der Aufgabe vertraut machen können.</p>"+
+			"<p style='font-size:26px;'><br><br>Wenn Sie mit der Aufgabe beginnen möchten, drücken Sie bitte die Leertaste.</p>";
 		
-		var instruct_muffins = "<p style='font-size:26px;'>In diesem Experiment werden Ihnen Bilder von Muffins gezeigt.</p>"+
-		    	"<p style='font-size:26px;'>Ihre Aufgabe ist es, zu bewerten, ob es dem Muffin Ihrer Meinung nach "+
+		var instruct_muffins = "<p style='font-size:26px;'>In der folgenden Aufgabe werden Ihnen Bilder von Muffins gezeigt.</p>"+
+		    	"<p style='font-size:26px;'>Ihre Aufgabe ist es, die 'Gesichtsausdrücke' der Muffins zu bewerten. Sie sollen angeben, ob es einem Muffin Ihrer Meinung nach "+
 		    	"gut oder schlecht geht.</p>"+
 		    	"<p style='font-size:26px;'>Geht es dem Muffin Ihrer Meinung nach <strong>" + c1.replace("es", "") +
 			"</strong>, drücken Sie die Taste <strong>J</strong> mit dem rechten Zeigefinger.</p>"+
@@ -1236,28 +1237,33 @@
  			"<p style='font-size:26px;'>Für Ihre Antwort gibt es keine Zeitbegrenzung.</p>"+
  			"<div style='float: middle;'><img src='01.png' width='300' height='200'></img>" +
  			"</div>"+
-			"<p style='font-size:26px;'>Drücken Sie eine beliebige Taste, um mit einigen Übungsdurchgängen zu beginnen.</p>";
+			"<p style='font-size:26px;'>Wir präsentieren Ihnen zunächst drei Übungsdurchgänge, damit Sie sich mit dem Format der Aufgabe vertraut machen können.</p>"+
+			"<p style='font-size:26px;'><br><br>Wenn Sie mit der Aufgabe beginnen möchten, drücken Sie bitte die Leertaste.</p>";
 		
 		
 	  	 /***********************/
 		/* Consent Information */
 	       /***********************/
 		
-		var consent_information = "<div style='margin-bottom:20px; font-size:16px;'><h2>Einwilligung und Studieninformationen</h2>"+
-			"<dl><dt><strong>Studieninformation</strong></dt><dd>In dieserm kleinen Experiment werden Ihnen Bilder von Wolken und Muffins gezeigt, welche Sie via Tastendruck bewerten sollen. Außerdem würden wir am Ende gerne Ihr Alter und Ihr Geschlecht erfahren.</dd>"
+		var consent_information = "<div style='margin-bottom:20px; font-size:16px;'><h2>Studieninformationen und -einwilligung</h2>"+
+			"<dl><dt><strong>Studieninformation</strong></dt><dd>In dieser kleinen Studie werden Ihnen Bilder von Alltagsgegenständen und -situationen (Himmel und Muffins) gezeigt, welche Sie per Tastendruck bewerten sollen. </dd>"
 			+ "<dt><strong>Wissenschaftliche Ziele</strong></dt>"+
-			"<dd>Dieses kleine Experiment dient der Auswahl geeigneter Bilder für eine Studie zur Interpretation uneindeutiger Inhalte.</dd><dt><strong>Persönlicher Nutzen</strong></dt>"+
-			"<dd>Die Teilnahme an diesem Experiment kann leider nicht entlohnt werden. Wir danken Ihnen umso mehr vielmals für Ihre Teilnahme. </dd>"+
+			"<dd>Die Studie dient der Auswahl geeigneter Bilder für eine folgende Studie zu interindividuellen Unterschieden in der Wahrnehmung von Alltagsgegenständen und -situationen.</dd><dt><strong>Persönlicher Nutzen</strong></dt>"+
+			"<dd>Mit Ihrer Teilnahme an unserer Studie unterstützen Sie unsere Forschung. Die Teilnahme ist für Sie mit keinem persönlichen Nutzen, insbesondere nicht mit einer finanziellen Entschädigung verbunden. Wir freuen uns sehr, wenn Sie sich für die Teilnahme entscheiden und danken Ihnen herzlich für die Unterstützung unserer Forschung, die Sie damit leisten. </dd>"+
 			"<dt><strong>Freiwilligkeit</strong></dt>"+
-			"<dd>Die Teilnahme an diesem Experiment ist vollkommen freiwillig. Sie können Ihre Teilnahme jederzeit ohne Angabe von Gruenden beenden, ohne dass Ihnen dadurch Nachteile entsehen. Um das Experiment zu abzubrechen, drücken Sie jederzeit während des Experiments die Taste 'q'. Alternativ drücken Sie bitte 'Esc'. In beiden Fällen können Sie das Browser-Fenster anschließend einfach schließen, ohne dass irgendwelche Ihrer Angaben gespeichert werden.</dd>"+
+			"<dd>Die Teilnahme an dieser Studie ist freiwillig. Sie können Ihre Teilnahme jederzeit ohne Angabe von Gründen beenden, ohne dass Ihnen dadurch Nachteile entsehen. Sollten Sie Ihre Teilnahme vor Abschluss der Aufgabe abbrechen wollen, drücken Sie die Taste 'Esc' auf Ihrer Tastatur. Dadurch beenden Sie die Präsentation. Sie können danach das Browser-Fenster schließen, ohne dass irgendwelche Ihrer Angaben gespeichert werden.</dd>"+
 			"<dt><strong>Datensicherung und Datenschutz</strong></dt>"+
-			"<dd>Im Zuge dieses Experiments werden <i>keinerlei</i> personen-identifizierende Daten (wie etwa IP-Adressen o. ä.) erhoben. Das heißt, die Daten (z. B. Ihr Tastendruck bei jedem der gezeigten Bilder) werden in rein anonymisierter Form abgespeichert und erlauben keine Rückschlüsse auf Ihre Person oder Ihren Standort. Die Daten werden auf einem lokalen Server an der Universität Frankfurt in einem Ordner gespeichert, der ausschließlich den Studienmitarbeitern zugänglich ist. </dd>"+
+			"<dd>Im Zuge dieser Studie werden <i>keinerlei</i> personenidentifizierende Daten (wie etwa Namen, Kontaktdaten oder IP-Adressen) erhoben. Die für die Studie relevanten Daten (z. B. Ihre einschätzung der im Folgenden präsentierten Bilder) werden in anonymisierter Form abgespeichert und erlauben keine Rückschlüsse auf Ihre Person oder Ihren Standort. Die Daten werden auf einem lokalen Server an der Universität Frankfurt in einem Verzeichnis gespeichert, das ausschließlich den Studienmitarbeitern zugänglich ist. </dd>"+
 			"<dt><strong>Studienleitung</strong></dt>"+
-			"<dd>Bei Rückfragen melden Sie sich bitte bei der Studienleiterin: <br>Dr. Ulrike Basten, Institut für Psychologie, Goethe-Universität Frankfurt<br>basten@psych.uni-frankfurt.de <br> 069-798-35337</dd>"+
-			"</dl></div>"+"<div style='font-size:16px;'><p style='margin:0px; font-size:16px;'><br><br><i>Wenn Sie mit den obenstehenden Informationen einverstanden sind, klicken Sie bitte auf 'Einverstanden',  um an diesem Experiment teilzunehmen.</i></p><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den obenstehenden Informationen nicht einverstanden sind, klicken Sie bitte auf 'Nicht einverstanden', um das Experiment abzubrechen.</i></p></div>";
+			"<dd>Bei Rückfragen wenden Sie sich gerne an die Studienleiterin: <br>Dr. Ulrike Basten, Institut für Psychologie, Goethe-Universität Frankfurt<br>basten@psych.uni-frankfurt.de <br> 069-798-35337 <br><br>Das Studienteam<br><small> Ulrike Basten, Rebecca Mayer, Isabelle Ehrlich, Leah Kumle </small></dd>"+
+			"</dl></div>"+"<div style='font-size:16px;'><p style='margin:0px; font-size:16px;'><br><br><i>Wenn Sie mit den obenstehenden Informationen einverstanden sind, klicken Sie bitte auf 'Einverstanden',  um an dieser Studie teilzunehmen.</i></p><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den obenstehenden Informationen nicht einverstanden sind, klicken Sie bitte auf 'Nicht einverstanden', um die Studie abzubrechen.</i></p></div>";
 
 			
+	         /************************/
+		/**** Fullscreen_welcome ***/
+	       /************************/
 			
+			var fullscreen_text = "<p style='font-size:16px;'><strong>Herzlich Willkommen!</strong><br>Wir freuen uns, dass Sie an unserer Studie teilnehmen möchten.<br>Wenn Sie unten auf die Schaltfläche 'Weiter' klicken, erscheint die folgende Präsentation im Vollbild-Modus. <br> Der Vollbild-Modus wird automatisch wieder beendet, wenn Sie die folgende Aufgabe bis zum Ende bearbeiten.<br>Sollten Sie den Vollbild-Modus vorher verlassen wollen, drücken Sie die Taste 'Esc' auf Ihrer Tastatur.</p>";
 			
 	         /************************/
 		/**** Resize-Instruct ***/
@@ -1265,14 +1271,14 @@
 		
 		var resize_text = "<p style='font-size:16px;'>Um die Bilder, welche Sie gleich sehen werden, in der für Ihren Bildschirm richtigen Größe darstellen zu können,</p>" + "<p style='font-size:16px;'>bitten wir Sie, sich nun eine Bankkarte zur Hand zu nehmen. Halten Sie die Karte direkt vor das blaue Feld</p>"+
 			"<p style='font-size:16px;'> und ziehen Sie die rechte untere Ecke des Feldes so weit, dass es der Größe Ihrer Bankkarte entspricht.</p>"+
-			"<p style='margin-top: 30px; font-size:16px'>Wenn Sie bereit sind, klicken Sie bitte auf 'Weiter'.</p>"
+			"<p style='margin-top: 30px; font-size:16px'><br>Wenn Sie die Größe des blauen Feldes passend eingestellt haben, klicken Sie bitte unten auf die Schaltfläche 'Weiter'.</p>"
 	
 			
 			
 	         /************************/
 		/* Concentrate-Instruct */
 	       /************************/		
-		var concentrate_text = "<p style='font-size:26px;'>Für unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestört</strong> bearbeiten können.</p>" + "<p style='font-size:26px;'>Wir bitten Sie daher, sich für die Bearbeitung der folgenden beiden Aufgaben an einen ruhigen Ort zu begeben</p><p style='font-size:26px;'> und nach Möglichkeit keine weiteren Aktivitäten parallel zu verfolgen.</p><p style='font-size:26px;'> <strong>Vielen Dank!!</strong></p>"+ "<p style='font-size:26px;'>Klicken Sie auf 'Ich bin bereit', um mit der ersten Aufgabe zu starten.</p>";
+		var concentrate_text = "<p style='font-size:26px;'>Für unsere Untersuchung ist es wichtig, dass Sie die folgenden Aufgaben <strong>ungestört</strong> bearbeiten können.</p>" + "<p style='font-size:26px;'>Wir bitten Sie daher, sich für die Bearbeitung der Aufgaben an einen ruhigen Ort zu begeben</p><p style='font-size:26px;'> und nach Möglichkeit keine weiteren Aktivitäten parallel zu verfolgen.</p><p style='font-size:26px;'> <strong>Vielen Dank!!</strong></p>"+ "<p style='font-size:26px;'>Klicken Sie auf 'Ich bin bereit', um mit der ersten Aufgabe zu starten.</p>";
 
 						
 		
@@ -1284,8 +1290,7 @@
 		var start_fullscreen = {
 			type: 'fullscreen',
 			fullscreen_mode:true,
-			message: "<div>Bitte klicken Sie auf 'Weiter', um das Experiment im Vollbild-Modus zu sehen.</div>"+
-			"<div>Der Vollbild-Modus endet nach Ende des Experiments automatisch. Andernfalls können Sie den Vollbild-Modus jederzeit durch Drücken von 'Esc' beenden.</div>",
+			message: fullscreen_text,
 			button_label: "Weiter"
 		};
 		
@@ -1302,11 +1307,11 @@
 			type: 'html-button-response',
 			stimulus: consent_information,
 			margin_vertical: '2px',
-			choices: ["Nicht einverstanden.", "Einverstanden."],
+			choices: ["Einverstanden.", "Nicht einverstanden."],
 			on_finish: function(data){
-				if(data.button_pressed == "0"){
+				if(data.button_pressed == "1"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
-					jsPsych.endExperiment("<div'>Sie haben sich entschieden, das Experiment abzubrechen. Keine Ihrer Angaben wurde gespeichert.<br> Um den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<div/><div><br><br>Vielen Dank!</div>")}
+					jsPsych.endExperiment("<div>Sie haben sich entschieden, das Experiment abzubrechen. Keine Ihrer Angaben wurde gespeichert.<br> Um den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<div/><div><br><br>Vielen Dank!</div>")}
 				}
 			};
 			
@@ -1327,11 +1332,11 @@
 			type: "html-button-response", 
 			stimulus: concentrate_text,
 			margin_vertical:'15px',
-			choices:["<p style='font-size:20px'>Ich bin bereit</p>", "<p style='font-size:20px'>Ich kann gerade doch nicht</p>"],
+			choices:["<p style='font-size:20px'>Ich bin bereit</p>", "<p style='font-size:20px'>Ich kann die Aufgabe jetzt nicht ungestört bearbeiten.</p>"],
 			on_finish: function(data){
 				if(data.button_pressed == "1"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
-					jsPsych.endExperiment("<div style='font-size:25px;'>Sie haben sich entschieden, das Experiment abzubrechen. Keine Ihrer Angaben wurde gespeichert.<br> Um den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<div/><div style='font-size:25px;'><br><br>Vielen Dank!</div>")}
+					jsPsych.endExperiment("<div style='font-size:25px;'>Sie haben gerade keine Gelegenheit, die Aufgaben ungestört durchzuführen?<br> Wir freuen uns, wenn Sie uns zu einem späteren Zeitpunkt durch Ihre Teilnahme unterstützen wollen!<br><br> Um nun den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<br> Auf diese Weise werden keine Ihrer bisher gemachten Angaben gespeichert.<div/><div style='font-size:25px;'> <br><br>Vielen Dank!</div>")}
 				}			
 			};	
 		
@@ -1340,6 +1345,7 @@
 		var instructions = {
 			type: 'html-keyboard-response',
 			stimulus: instruct_clouds,
+			choices: [32],
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1401,8 +1407,8 @@
 		// End-of-Practice-Trials Trial
 		var end_of_practice = {
 			type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:30px;'>Das waren die Übungsdurchgänge.</p>" +
-			"<p style='font-size:30px;'>Drücken Sie eine beliebige Taste, um mit der eigentlichen Aufgabe zu beginnen.</p>",
+			stimulus: "<p style='font-size:30px;'>Das waren die drei Übungsdurchgänge.<br><br> In der folgenden Hauptaufgabe sollen Sie 100 Bilder bewerten. Das dauert ungefähr 7 Minuten.</p>" +
+			"<p style='font-size:30px;'>Wenn Sie bereit sind, mit der Bearbeitung der Aufgabe zu beginnen, klicken Sie unten auf die Schaltfläche 'Weiter'.</p>",
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1422,7 +1428,7 @@
 		// Start Task 2
 		var pause = {
 		    type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft, vielen Dank!</p><p style='font-size:30px;'> Gerne können Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe starten.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, drücken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>",
+			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft. Vielen Dank!</p><p style='font-size:30px;'> Gerne können Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe beginnen.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, die zweite Aufgabe zu bearbeiten, drücken Sie eine beliebige Taste, um mit der zweiten Aufgabe fortzufahren.</p>",
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1440,7 +1446,7 @@
 		// Age question
 		var age = {
 			type: "survey-text",
-			questions: [{prompt: "<p style='font-size:20px;'>Geben Sie hier bitte Ihr Alter an:</p>", rows:1, columns:6}], 
+			questions: [{prompt: "<p style='font-size:25px;'>Da wir für eine Größere Gruppe von Teilnehmern gerne untersuchen möchten, ob das Alter oder das Geschlecht einen Einfluss<br> auf die Beurteilung der Himmels und Muffinbilder haben, freuen wir uns, wenn Sie auch Ihr Alter und Ihre Geschlecht angeben. Auch diese Angabe ist natürlich freiwillig. <br><br> Hier bitten wir Sie, Ihr Alter anzugeben. Sollten Sie keine Angabe machen wollen, schreiben Sie einfach 'xx' in das Eingabefeld. </p>", rows:1, columns:6}], 
 			button_label: "<p style='font-size:16px;'>Weiter</p>"
 		};
 		
@@ -1448,7 +1454,7 @@
 		var options_gender = ["<strong>männlich</strong>", "<strong>weiblich</strong>", "<strong>anderes</strong>", "<strong>keine Angabe</strong>"] ;// ["maennlich", "weiblich"]; 
 		var gender = {
 			type: "survey-multi-choice",
-			questions: [{prompt: "<p style='font-size:26px;'>Geben Sie hier bitte Ihr Geschlecht an:</p>", options: options_gender}],
+			questions: [{prompt: "<p style='font-size:26px;'>Hier bitten wir Sie, Ihr Geschlecht anzugeben:</p>", options: options_gender}],
 			button_label: "Weiter" //"<p>Weiter</p>" --> doesn't work
 		};
 		
@@ -1456,9 +1462,10 @@
 		// Ask if subjects got disturbed during the experiment
 		var ask_concentrate = {
 			type: "html-button-response",
-			stimulus: "<p style='font-size:26px;'>Konnten Sie die Aufgabe ungestört bearbeiten?</p>",
+			stimulus: "<p style='font-size:26px;'>Damit wir wissen, ob wir Ihre Angaben für unsere Analysen verwenden können, möchten wir Sie abschließend noch fragen, ob Sie die Aufgabe ungestört bearbeitn konnten.</p>",
 			margin_vertical:"25px",
-			choices:["<p style='font-size:20px;'>Ja, ich konnte die Aufgabe ungestört bearbeiten.</p>", "<p style='font-size:20px;'>Nein, ich wurde gestört.</p>", "<p style='font-size:20px;'>Nein, bitte verwerfen Sie alle meine Angaben.</p>"],
+			choices:["<p style='font-size:20px;'>Ja! Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p>", "<p style='font-size:20px;'>Nein! Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p>"],
+			button_html: ["<button class='jspsych-btn_green'><p style='font-size:20px;'>Ja! Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p></button>", "<button class='jspsych-btn_red'><p style='font-size:20px;'>Nein! Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p></button>"],
 			on_finish: function(data){
 				if(data.button_pressed == "2"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1488,7 +1495,7 @@
 	       /*******************/
 		
 		timeline.push(start_fullscreen);	
-		timeline.push(welcome);
+		//timeline.push(welcome);
 		timeline.push(consent_info);
 		timeline.push(resize);
 		timeline.push(concentrate);
@@ -1503,7 +1510,7 @@
 		timeline.push(instructions);
 		timeline.push(test_procedure);
 		timeline.push(end_of_practice); // stays the same for all conditions
-		timeline.push(procedure);
+		//timeline.push(procedure);
 		
 		//Pause between tasks
 		timeline.push(pause);
@@ -1524,7 +1531,7 @@
 		timeline.push(instructions2);
 		timeline.push(test_procedure2);
 		timeline.push(end_of_practice); // stays the same for all conditions
-		timeline.push(procedure2);	
+		//timeline.push(procedure2);	
 		timeline.push(age);
 		timeline.push(gender);
 		timeline.push(ask_concentrate);		
