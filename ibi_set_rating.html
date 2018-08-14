@@ -2,7 +2,7 @@
 <html>
     <head>
 	<meta charset="utf-8"/>    
-        <title>Experiment</title> 
+        <title>IBI-Studie</title> 
 		<script src="jspsych-6.0.4/jspsych.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych-6.0.4/plugins/jspsych-image-keyboard-response.js"></script>
@@ -1253,7 +1253,7 @@
 			"<dt><strong>Freiwilligkeit</strong></dt>"+
 			"<dd>Die Teilnahme an dieser Studie ist freiwillig. Sie können Ihre Teilnahme jederzeit ohne Angabe von Gründen beenden, ohne dass Ihnen dadurch Nachteile entsehen. Sollten Sie Ihre Teilnahme vor Abschluss der Aufgabe abbrechen wollen, drücken Sie die Taste 'Esc' auf Ihrer Tastatur. Dadurch beenden Sie die Präsentation. Sie können danach das Browser-Fenster schließen, ohne dass irgendwelche Ihrer Angaben gespeichert werden.</dd>"+
 			"<dt><strong>Datensicherung und Datenschutz</strong></dt>"+
-			"<dd>Im Zuge dieser Studie werden <i>keinerlei</i> personenidentifizierende Daten (wie etwa Namen, Kontaktdaten oder IP-Adressen) erhoben. Die für die Studie relevanten Daten (z. B. Ihre einschätzung der im Folgenden präsentierten Bilder) werden in anonymisierter Form abgespeichert und erlauben keine Rückschlüsse auf Ihre Person oder Ihren Standort. Die Daten werden auf einem lokalen Server an der Universität Frankfurt in einem Verzeichnis gespeichert, das ausschließlich den Studienmitarbeitern zugänglich ist. </dd>"+
+			"<dd>Im Zuge dieser Studie werden <i>keinerlei</i> personenidentifizierende Daten (wie etwa Namen, Kontaktdaten oder IP-Adressen) erhoben. Die für die Studie relevanten Daten (z. B. Ihre Einschätzung der im Folgenden präsentierten Bilder) werden in anonymisierter Form abgespeichert und erlauben keine Rückschlüsse auf Ihre Person oder Ihren Standort. Die Daten werden auf einem lokalen Server an der Universität Frankfurt in einem Verzeichnis gespeichert, das ausschließlich den Studienmitarbeitern zugänglich ist. </dd>"+
 			"<dt><strong>Studienleitung</strong></dt>"+
 			"<dd>Bei Rückfragen wenden Sie sich gerne an die Studienleiterin: <br>Dr. Ulrike Basten, Institut für Psychologie, Goethe-Universität Frankfurt<br>basten@psych.uni-frankfurt.de, 069-798-35337 </dd>"+
 			"</dl></div>"+"<div style='font-size:16px;'><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den obenstehenden Informationen einverstanden sind, klicken Sie bitte auf 'Einverstanden',  um an dieser Studie teilzunehmen.</i></p><p style='margin:0px; font-size:16px;'><i>Wenn Sie mit den obenstehenden Informationen nicht einverstanden sind, klicken Sie bitte auf 'Nicht einverstanden', um die Studie abzubrechen.</i></p></div>";
@@ -1332,7 +1332,7 @@
 			type: "html-button-response", 
 			stimulus: concentrate_text,
 			margin_vertical:'15px',
-			choices:["<p style='font-size:20px'>Ich bin bereit</p>", "<p style='font-size:20px'>Ich kann die Aufgabe jetzt nicht ungestört bearbeiten.</p>"],
+			choices:["<p style='font-size:20px'>Ich bin bereit</p>", "<p style='font-size:20px'>Ich kann die Aufgabe jetzt nicht ungestört bearbeiten</p>"],
 			on_finish: function(data){
 				if(data.button_pressed == "1"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1429,7 +1429,7 @@
 		// Start Task 2
 		var pause = {
 		    type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft. Vielen Dank!</p><p style='font-size:30px;'> Gerne können Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe beginnen.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, die zweite Aufgabe zu bearbeiten, drücken Sie die Leertaste, um mit der zweiten Aufgabe fortzufahren.</p>",
+			stimulus: "<p style='font-size:30px;'>Die erste Aufgabe ist geschafft. Vielen Dank!</p><p style='font-size:30px;'> Gerne können Sie eine kleine Pause einlegen, bevor Sie mit der zweiten Aufgabe beginnen.</p>"+ "<p style='font-size:30px;'><br><br><br>Wenn Sie bereit sind, die zweite Aufgabe zu bearbeiten, drücken Sie die Leertaste, um fortzufahren.</p>",
 			choices: [32],
 			on_finish: function(data){
 				if(data.key_press == 81){ // 81 is js key code for "q", which we use as an exit button
@@ -1448,7 +1448,7 @@
 		// Age question
 		var age = {
 			type: "survey-text",
-			questions: [{prompt: "<p style='font-size:25px;'>Da wir für eine Größere Gruppe von Teilnehmern gerne untersuchen möchten, ob das Alter oder das Geschlecht einen Einfluss<br> auf die Beurteilung der Himmels und Muffinbilder haben, freuen wir uns, wenn Sie auch Ihr Alter und Ihre Geschlecht angeben. Auch diese Angabe ist natürlich freiwillig. <br><br> Hier bitten wir Sie, Ihr Alter anzugeben. Sollten Sie keine Angabe machen wollen, schreiben Sie einfach 'xx' in das Eingabefeld. </p>", rows:1, columns:6}], 
+			questions: [{prompt: "<p style='font-size:25px;'>Da wir für eine größere Gruppe von Teilnehmern gerne untersuchen möchten, ob das Alter oder das Geschlecht einen Einfluss<br> auf die Beurteilung der Himmels- und Muffinbilder haben, freuen wir uns, wenn Sie auch Ihr Alter und Ihr Geschlecht angeben. Auch diese Angabe ist natürlich freiwillig. <br><br> Hier bitten wir Sie, Ihr Alter anzugeben. Sollten Sie keine Angabe machen wollen, schreiben Sie einfach 'xx' in das Eingabefeld. </p>", rows:1, columns:6}], 
 			button_label: "<p style='font-size:16px;'>Weiter</p>"
 		};
 		
@@ -1466,8 +1466,8 @@
 			type: "html-button-response",
 			stimulus: "<p style='font-size:26px;'>Damit wir wissen, ob wir Ihre Angaben für unsere Analysen verwenden können, möchten wir Sie abschließend noch fragen, ob Sie die Aufgabe ungestört bearbeiten konnten.</p>",
 			margin_vertical:"25px",
-			choices:["<p style='font-size:20px;'><strong>Ja!</strong> Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p>", "<p style='font-size:20px;'><strong>Nein!</strong> Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p>"],
-			button_html: ["<button class='jspsych-btn_green'><p style='font-size:20px;'>Ja! Ich konnte die Aufgabe ungestört bearbeiten.<br> Bitte speichern Sie meine Angaben.</p></button>", "<button class='jspsych-btn_red'><p style='font-size:20px;'>Nein! Ich wurde gestört. <br>Bitte verwerfen Sie alle meine Angaben. </p></button>"],
+			choices:["<p style='font-size:20px;'><strong>Ja!</strong> <br>Ich konnte die Aufgabe ungestört bearbeiten. Bitte speichern Sie meine Angaben.</p>", "<p style='font-size:20px;'><strong>Nein!</strong> <br>Ich wurde gestört. Bitte verwerfen Sie alle meine Angaben. </p>"],
+			button_html: ["<button class='jspsych-btn_green'><p style='font-size:20px;'><strong>Ja!</strong><br> Ich konnte die Aufgabe ungestört bearbeiten.<br> Bitte speichern Sie meine Angaben.</p></button>", "<button class='jspsych-btn_red'><p style='font-size:20px;'><strong>Nein!</strong><br> Ich wurde gestört. <br>Bitte verwerfen Sie alle meine Angaben. </p></button>"],
 			on_finish: function(data){
 				if(data.button_pressed == "1"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
@@ -1485,8 +1485,8 @@
 		// Goodbye/End of Experiment
 		var goodbye = {
 			type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:25px;'>Das Experiment ist nun zu Ende.<br> <strong>WICHTIG:</strong> Bitte drücken Sie eine beliebige Taste, bevor Sie das Browser-Fenster schließen, <br>um die Abspeicherung Ihrer Angaben sicherzustellen!</p>" +
-			"<p style='font-size:25px;'> Vielen Dank für Ihre Teilnahme!</p>"
+			stimulus: "<p style='font-size:25px;'>Das war's!<br> <strong>WICHTIG:</strong> Bitte drücken Sie eine beliebige Taste, bevor Sie das Browser-Fenster schließen, <br>um die Abspeicherung Ihrer Angaben sicherzustellen!</p>" +
+			"<p style='font-size:25px;'> Wir danken Ihnen herzlich für Ihre Unterstützung! </p>"
 		};
 		
 		
@@ -1497,7 +1497,7 @@
 	       /*******************/
 		
 		timeline.push(start_fullscreen);	
-		//timeline.push(welcome);
+		//timeline.push(welcome); // now integrated in fullscreen plugin
 		timeline.push(consent_info);
 		timeline.push(resize);
 		timeline.push(concentrate);
@@ -1512,7 +1512,7 @@
 		timeline.push(instructions);
 		timeline.push(test_procedure);
 		timeline.push(end_of_practice); // stays the same for all conditions
-		//timeline.push(procedure);
+		timeline.push(procedure);
 		
 		//Pause between tasks
 		timeline.push(pause);
@@ -1533,7 +1533,7 @@
 		timeline.push(instructions2);
 		timeline.push(test_procedure2);
 		timeline.push(end_of_practice); // stays the same for all conditions
-		//timeline.push(procedure2);	
+		timeline.push(procedure2);	
 		timeline.push(age);
 		timeline.push(gender);
 		timeline.push(ask_concentrate);		
