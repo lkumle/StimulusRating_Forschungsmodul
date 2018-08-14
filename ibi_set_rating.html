@@ -1328,7 +1328,7 @@
 			};	
 			
 			
-		// concentrate trials
+		// concentrate trial
 		var concentrate = {
 			type: "html-button-response", 
 			stimulus: concentrate_text,
@@ -1337,7 +1337,7 @@
 			on_finish: function(data){
 				if(data.button_pressed == "1"){
 					jsPsych.data.get().addToLast({ID: 'abort'});
-					jsPsych.endExperiment("<div style='font-size:25px;'>Sie haben gerade keine Gelegenheit, die Aufgaben ungestört durchzuführen?<br> Wir freuen uns, wenn Sie uns zu einem späteren Zeitpunkt durch Ihre Teilnahme unterstützen wollen!<br><br> Um nun den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<br> Auf diese Weise werden keine Ihrer bisher gemachten Angaben gespeichert.<div/><div style='font-size:25px;'> <br><br>Vielen Dank!</div>")}
+					jsPsych.endExperiment("<div style='font-size:25px;'>Sie haben gerade keine Gelegenheit, die Aufgaben ungestört durchzuführen?<br> Wir freuen uns, wenn Sie uns zu einem späteren Zeitpunkt durch Ihre Teilnahme unterstützen möchten!<br><br> Um nun den Vollbild-Modus zu beenden, drücken Sie bitte 'Esc'. Anschließend können Sie das Browser-Fenster schließen.<br> Auf diese Weise werden keine Ihrer bisher gemachten Angaben gespeichert.<div/><div style='font-size:25px;'> <br><br>Vielen Dank!</div>")}
 				}			
 			};	
 		
