@@ -1286,7 +1286,7 @@
 		// End-of-Practice-Trials Trial
 		var end_of_practice = {
 			type: "html-keyboard-response", 
-			stimulus: "<p style='font-size:30px;'>Das waren die drei Übungsdurchgänge.<br><br> In der folgenden Hauptaufgabe sollen Sie 100 Bilder bewerten. Das dauert ungefähr 7 Minuten.</p>" +
+			stimulus: "<p style='font-size:30px;'>Das waren die beiden Übungsdurchgänge.<br><br> In der folgenden Hauptaufgabe sollen Sie etwa 200 Bilder bewerten. Das dauert ungefähr 7 Minuten.</p>" +
 			"<p style='font-size:30px;'><br>Wenn Sie bereit sind, mit der Bearbeitung der Aufgabe zu beginnen, drücken Sie bitte die Leertaste.</p>",
 			choices: [32],
 			on_finish: function(data){
@@ -1394,6 +1394,7 @@
 		timeline.push(test_procedure);
 		timeline.push(end_of_practice); // stays the same for all conditions
 		timeline.push(procedure);
+		timeline.push(procedure);
 		
 		//Pause between tasks
 		timeline.push(pause);
@@ -1414,7 +1415,8 @@
 		timeline.push(instructions2);
 		timeline.push(test_procedure2);
 		timeline.push(end_of_practice); // stays the same for all conditions
-		timeline.push(procedure2);	
+		timeline.push(procedure2);
+		timeline.push(procedure2);
 		timeline.push(age);
 		timeline.push(gender);
 		timeline.push(ask_concentrate);		
